@@ -1,0 +1,16 @@
+PODS:
+  - CollectionKit (2.0.1)
+
+DEPENDENCIES:
+  - CollectionKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CollectionKit
+
+SPEC CHECKSUMS:
+  CollectionKit: c891976ede4e800e2102333df310edc06d8430f4
+
+PODFILE CHECKSUM: f98189d4e475eecd1da02874f70c79181ad50493
+
+COCOAPODS: 1.5.3

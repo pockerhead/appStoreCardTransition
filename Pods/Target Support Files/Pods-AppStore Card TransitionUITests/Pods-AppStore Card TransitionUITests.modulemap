@@ -1,0 +1,6 @@
+framework module Pods_AppStore_Card_TransitionUITests {
+  umbrella header "Pods-AppStore Card TransitionUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

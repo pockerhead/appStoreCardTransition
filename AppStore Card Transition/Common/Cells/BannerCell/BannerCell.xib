@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BannerCell" customModule="AppStore_Card_Transition" customModuleProvider="target">
+            <connections>
+                <outlet property="image" destination="QUV-GK-cMb" id="864-h9-ejz"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="391"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QUV-GK-cMb">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="391"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="QUV-GK-cMb" secondAttribute="bottom" id="6hx-Ua-fqU"/>
+                <constraint firstItem="QUV-GK-cMb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="9xd-GW-SUI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QUV-GK-cMb" secondAttribute="trailing" id="etO-Jp-xQJ"/>
+                <constraint firstItem="QUV-GK-cMb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="oCB-15-Jlm"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="132" y="30.134932533733135"/>
+        </view>
+    </objects>
+</document>
