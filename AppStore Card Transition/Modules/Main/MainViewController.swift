@@ -37,7 +37,7 @@ extension MainViewController {
             guard let `self` = self, let banner = context.data else { return }
             self.open(banner, with: context.view)
         }
-        collectionView.provider = BannersListProvider(dataSource, tapHandler: tapHandler, needSpacing: true)
+        collectionView.provider = BannersListProvider(dataSource, tapHandler: tapHandler, isBannersList: true)
         dataSource.data = bannerData
     }
 }

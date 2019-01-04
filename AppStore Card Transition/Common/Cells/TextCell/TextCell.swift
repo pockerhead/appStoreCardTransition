@@ -26,5 +26,6 @@ class TextCell: UIView {
     
     func configure(with text: String) {
         textView.text = text
+        textView.contentInsetAdjustmentBehavior = .never
     }
 }

@@ -14,6 +14,9 @@ class BannerCell: UIView {
     //MARK: - IBOutlets
     @IBOutlet weak var image: UIImageView!
     
+    //MARK: - Properties
+    var needTransformOnTouch: Bool = true
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         fromNib()
@@ -24,25 +27,42 @@ class BannerCell: UIView {
         fromNib()
     }
     
-    func configure(with image: UIImage) {
+    func configure(with image: UIImage, needTransformOnTouch: Bool = true) {
         self.image.image = image
+        self.needTransformOnTouch = needTransformOnTouch
+        if needTransformOnTouch {
+            self.subviews.first?.clipsToBounds = true
+            self.subviews.first?.layer.cornerRadius = 16
+        }
     }
 }
 
 extension BannerCell {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        guard needTransformOnTouch else {
+            return
+        }
         UIView.animate(withDuration: 0.3) {
-            self.transform = .init(scaleX: 0.9, y: 0.9)
+            self.transform = .init(scaleX: 0.95, y: 0.95)
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        guard needTransformOnTouch else {
+            return
+        }
         UIView.animate(withDuration: 0.3) {
             self.transform = .identity
         }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        guard needTransformOnTouch else {
+            return
+        }
         UIView.animate(withDuration: 0.3) {
             self.transform = .identity
         }

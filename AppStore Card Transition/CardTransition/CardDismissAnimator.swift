@@ -59,19 +59,19 @@ class CardDismissAnimator: UIPercentDrivenInteractiveTransition, UIViewControlle
         } else {
             otherSubviews = fromView.subviews.filter {$0 !== cardView}
         }
-        let cardViewFrame = cardView.superview?.convert(cardView.frame, to: nil)
+        let cardViewFrame = cardView.frameToWindow(withoutTransform: true)
         let cardViewSnapshot = data.view!.snapshotView(afterScreenUpdates: true)!
         let displayingCardView = cardView.snapshotView(afterScreenUpdates: true)!
         cardView.isHidden = true
         ctx.containerView.addSubview(blurView)
         blurView.frame = ctx.containerView.frame
         blurView.alpha = 1
-        let fakeRect = CGRect(x: 0, y: 0, width: fromView.frame.width, height: data.view!.frame.height * 1.5)
+        let fakeRect = CGRect(x: 0, y: -cardView.frame.height, width: cardView.frame.width, height: cardView.frame.height)
         containerView.addSubview(fromView)
         containerView.addSubview(cardViewSnapshot)
         containerView.addSubview(displayingCardView)
-        displayingCardView.frame = cardViewFrame ?? .zero
-        cardViewSnapshot.frame = cardViewFrame ?? .zero
+        displayingCardView.frame = cardViewFrame ?? fakeRect
+        cardViewSnapshot.frame = cardViewFrame ?? fakeRect
         cardViewSnapshot.layer.cornerRadius = data.radius ?? 0
         cardView.clipsToBounds = true
         cardViewSnapshot.alpha = 0

@@ -54,9 +54,16 @@ extension CardViewController {
             guard let `self` = self else { return }
             self.destView = view
         }
-        let bannerProvider = BannersListProvider(ArrayDataSource<AppstoreBanner?>(data: [self.banner]), tapHandler: nil, viewHandler: viewHandler, needSpacing: false)
+        let bannerProvider = BannersListProvider(ArrayDataSource<AppstoreBanner?>(data: [self.banner]), tapHandler: nil, viewHandler: viewHandler, isBannersList: false)
         let textProvider = TextViewProvider(ArrayDataSource<String>(data: [self.banner.text!]))
         collectionView.provider = ComposedProvider(identifier: "1", layout: FlowLayout(), sections: [bannerProvider, textProvider])
+        collectionView.delegate = self
         destView = bannerProvider.view(at: 0)
+    }
+}
+
+extension CardViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print(destView?.frameToWindow())
     }
 }
