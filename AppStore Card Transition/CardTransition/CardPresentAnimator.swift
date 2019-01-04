@@ -103,18 +103,23 @@ class CardPresentAnimator: UIPercentDrivenInteractiveTransition, UIViewControlle
                 shadowView.frame.origin.y = 0
                 sourceViewSnapshot.frame.origin.x = ctx.containerView.frame.origin.x
                 sourceViewSnapshot.frame.size.width = ctx.containerView.frame.size.width
-                sourceViewSnapshot.frame.origin.y = to?.cardDestinationView?.frame.origin.y ?? 0
                 _ = otherSubviews.map {$0.alpha = 1}
+                sourceViewSnapshot.alpha = 0
+
+            })
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1/3, animations: {
+                to!.cardDestinationView?.alpha = 1
             })
         }) { (finished) in
             
         }
         
+        
         UIView.animate(withDuration: self.transitionDuration(using: ctx), delay: 0, usingSpringWithDamping: 0.55, initialSpringVelocity: 0.5, options: [], animations: {
             toView.frame.origin.y = 0
             mask.frame.origin.y = 0
-            sourceViewSnapshot.alpha = 0
-            to!.cardDestinationView?.alpha = 1
+            sourceViewSnapshot.frame.origin.y = to?.cardDestinationView?.frameToWindow()?.origin.y ?? 0
         }) { (finished) in
             to?.viewDidAppear(true)
             sourceViewSnapshot.removeFromSuperview()
