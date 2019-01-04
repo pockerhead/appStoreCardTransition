@@ -1,5 +1,3 @@
-# appStoreCardTransition
-A short example how to use my appStore-like present transition
 
 # AppStore-Like Transition
 
