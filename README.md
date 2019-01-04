@@ -4,6 +4,5 @@
 
 https://youtu.be/QXo7LXsQgJc
 
-This is my vision of the transition from AppStore app.
-
+In this project, I tried to recreate the present transition from the AppStore application that is used on the feed screen.
 
